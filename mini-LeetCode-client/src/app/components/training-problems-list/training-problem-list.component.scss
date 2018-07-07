@@ -1,0 +1,30 @@
+.level {
+    min-width: 65px;
+    margin-right: 10px;
+}
+  
+.label.level {
+    padding: 0.5em 0.9em 0.5em 0.9em;
+    color: #fbfdfa;
+    font-size: 12px;
+  }
+  
+  .title {
+    font-size: 1.2em;
+  }
+
+  .level-easy {
+    background-color: #42ebf4;
+  }
+  
+  .level-medium {
+    background-color: #92cf5c;
+  }
+  
+  .level-hard {
+    background-color: #dd0d1e;
+  }
+  
+  .level-super {
+    background-color: #8d16e2;
+  }
