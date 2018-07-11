@@ -1,5 +1,6 @@
 import { Component, OnInit, Inject} from '@angular/core';
 import { Problem } from './../model/problem_model'
+import { Subscription } from 'rxjs'
 
 @Component({
   selector: 'app-training-problems-list',
@@ -7,7 +8,8 @@ import { Problem } from './../model/problem_model'
   styleUrls: ["./training-problem-list.component.scss"]
 })
 export class TrainingProblemsListComponent implements OnInit {
-  problems: Problem[];
+  problems: Problem[] = [];
+  subscription: Subscription;
 
   constructor(@Inject("ProblemService") private ProblemService) { }
 
@@ -16,6 +18,7 @@ export class TrainingProblemsListComponent implements OnInit {
   }
 
   getProblems() :void {
-    this.problems = this.ProblemService.getAllProblem();
+    this.subscription = this.ProblemService.getAllProblems()
+    .subscribe(problems => this.problems = problems);
   }
 }

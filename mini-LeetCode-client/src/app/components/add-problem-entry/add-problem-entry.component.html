@@ -1,0 +1,29 @@
+<div>
+  <form #formRef="ngForm">
+    <div class = "form-group">
+      <label for = "problemName"> Problem Name</label>
+      <input type = "text" class = "form-control" id = "problemName" name="problemName" placeholder = "Enter Problem Name" [(ngModel)] =  "newProblem.name" required>
+    </div>
+
+    <div class = "form-group">
+      <label for = "problemDescription"> problem Description</label>
+      <textarea type = "text" class = "form-control" row = '3' id = "problem Description" name="problemDescription" placeholder = "Enter Problem Description.." [(ngModel)] = "newProblem.description" required></textarea>
+    </div>
+
+      <div class = "form-group">
+          <label for = "problemLevel"> Problem Level</label>
+          <select class = "form-control" id = "problemLevel"
+          name = "problemLevel" [(ngModel)] = "newProblem.level">
+            <option *ngFor="let level of levels" [value] = level>
+              {{ level }}
+            </option>
+          </select>
+        </div>
+  </form>
+  <div class = "row">
+    <div class = "col-md-12">
+      <button type="submit" class="btn btn-primary pull-right" (click)="addNewProblem()">Add Problem</button>
+        Add Problem
+    </div>
+  </div>
+</div>

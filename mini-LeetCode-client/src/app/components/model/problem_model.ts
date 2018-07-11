@@ -3,5 +3,4 @@ export class Problem {
     name: string;
     description: string;
     level: string;
-    image: string;
 }

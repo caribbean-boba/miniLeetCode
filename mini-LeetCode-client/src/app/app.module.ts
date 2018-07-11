@@ -11,12 +11,16 @@ import { ProblemEntriesDetailComponent } from './components/problem-entries-deta
 
 
 import { routing } from "./app.routes";
+import { AddProblemEntryComponent } from './components/add-problem-entry/add-problem-entry.component';
+import { NavigationBarComponent } from './components/navigation-bar/navigation-bar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TrainingProblemsListComponent,
-    ProblemEntriesDetailComponent
+    ProblemEntriesDetailComponent,
+    AddProblemEntryComponent,
+    NavigationBarComponent
   ],
   imports: [
     BrowserModule,
