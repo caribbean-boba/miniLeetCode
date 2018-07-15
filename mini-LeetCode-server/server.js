@@ -10,5 +10,8 @@ mongoose.connect('mongodb://yanhan:lyh19970409@ds249415.mlab.com:49415/minileetc
 app.use(express.static(path.join(__dirname, '../public')));
 app.use('/', indexRouter);
 app.use('/api',restApiRouter);
+app.use('/',function(req, res){
+    res.sendFile("index.html", {root: path.join(__dirname, '../public')});
+});
 
 app.listen(3000, () => console.log('Example app listening on port 3000!'));
