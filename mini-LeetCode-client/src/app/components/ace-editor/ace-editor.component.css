@@ -1,0 +1,19 @@
+@media screen {
+    #editor {
+        height: 600px;
+        width: 1000px;
+    }
+    .editor-header {
+        padding: 25px;
+    }
+    .lang-select {
+        width: 30%;
+        margin-right: 10px;
+        margin-left: 10px;
+    }
+    .theme-select{
+        width: 30%;
+        margin-right: 10px;
+        margin-left: 10px;
+    }
+}

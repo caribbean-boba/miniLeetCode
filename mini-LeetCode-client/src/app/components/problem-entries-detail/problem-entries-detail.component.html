@@ -1,6 +1,5 @@
-<div class = "container" *ngIf = "problem">
-  <div class = "col-xs-12 col-md-4"></div>
-    <div>
+<div class="container" *ngIf = "problem">
+    <div class="col-xs-12 col-md-4">
       <h2>
         {{problem.id}}. {{problem.name}}
       </h2>
@@ -8,4 +7,7 @@
         {{problem.description}}
       </p>
     </div>
-</div>
+    <div class="hidden-xs col-sm-12 col-md-8">
+      <app-ace-editor></app-ace-editor>
+    </div>
+  </div>

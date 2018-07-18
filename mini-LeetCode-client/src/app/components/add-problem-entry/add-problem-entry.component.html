@@ -14,6 +14,7 @@
           <label for = "problemLevel"> Problem Level</label>
           <select class = "form-control" id = "problemLevel"
           name = "problemLevel" [(ngModel)] = "newProblem.level">
+            <option disabled selected value = ''> Seclect Level </option>
             <option *ngFor="let level of levels" [value] = level>
               {{ level }}
             </option>

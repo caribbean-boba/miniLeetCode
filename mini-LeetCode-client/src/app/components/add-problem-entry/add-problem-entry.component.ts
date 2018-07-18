@@ -1,10 +1,10 @@
 import { Component, OnInit, Inject } from '@angular/core';
-import { Problem } from './../model/problem_model'
+import { Problem } from '../../model/problem_model'
 const DEFAULT_PROBLEM: Problem = Object.freeze({
   id : 0,
   name: '',
   description:'',
-  level: 'EASY'
+  level: ''
 });
 
 @Component({

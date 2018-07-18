@@ -2,7 +2,7 @@ import {Routes, RouterModule} from "@angular/router";
 import { TrainingProblemsListComponent } from './components/training-problems-list/training-problems-list.component';
 import { ProblemEntriesDetailComponent } from './components/problem-entries-detail/problem-entries-detail.component';
 import { ProfileComponent } from './components/profile/profile.component';
-import { AuthGuardService } from './components/service/auth-guard.service';
+import { AuthGuardService } from './service/auth-guard.service';
 
 
 const routes: Routes = [
