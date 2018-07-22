@@ -8,7 +8,7 @@ var http = require('http');
 
 var socket_io = require('socket.io');
 var io = socket_io();
-var editorSocketService = require('./services/societ-io-service')(io);
+var editorSocketService = require('./services/socket-io-service')(io);
 
 mongoose.connect('mongodb://yanhan:lyh19970409@ds249415.mlab.com:49415/minileetcode', { useNewUrlParser: true });
 

@@ -43,7 +43,14 @@ export class AceEditorComponent implements OnInit {
         if (this.editor.lastAppliedChange != event) {
           this.CollabrativeEditService.change(JSON.stringify(event));
         }
+      });
+      this.editor.getSession().getSelection().on("changeCursor", () => {
+        let cursor = this.editor.getSession().getSelection().getCursor();
+        console.log("cursor move" + JSON.stringify(cursor));
+        this.CollabrativeEditService.cursorMove(JSON.stringify(cursor));
       })
+
+      this.CollabrativeEditService.buffer();
     })
   }
 
@@ -67,4 +74,5 @@ export class AceEditorComponent implements OnInit {
     let code = this.editor.getValue();
     console.log(code);
   }
+
 }
