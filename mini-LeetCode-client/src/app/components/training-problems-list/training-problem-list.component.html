@@ -1,7 +1,7 @@
 <div class="container">
   <app-add-problem-entry></app-add-problem-entry>
     <div class="list-group">
-      <a class="list-group-item list-group-item-action" *ngFor="let problem of problems" [routerLink] = "['/training-problem-list', problem.id]">
+      <a class="list-group-item list-group-item-action" *ngFor="let problem of problems | searchByName: name" [routerLink] = "['/training-problem-list', problem.id]">
         <span class="{{'pull-left label level level-' + problem.level.toLocaleLowerCase()}}">{{problem.level | uppercase}}</span>
         <strong class="title">{{problem.id}}. {{problem.name}}</strong>
       </a>

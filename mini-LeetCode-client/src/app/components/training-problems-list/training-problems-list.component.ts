@@ -10,11 +10,16 @@ import { Subscription } from 'rxjs'
 export class TrainingProblemsListComponent implements OnInit {
   problems: Problem[] = [];
   subscription: Subscription;
-
-  constructor(@Inject("ProblemService") private ProblemService) { }
+  name: string = '';
+  subscriptionNameInut: Subscription;
+  constructor(@Inject("ProblemService") private ProblemService,
+  @Inject("SearchInputService") private SearchInputService) { }
 
   ngOnInit() {
     this.getProblems();
+    this.subscriptionNameInut = this.SearchInputService.get()
+    .subscribe(
+      res => this.name = res)
   }
 
   getProblems() :void {

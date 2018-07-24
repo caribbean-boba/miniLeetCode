@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 // import { } from
 import { ProblemService } from '../app/service/problem.service';
@@ -18,6 +19,9 @@ import { AuthGuardService } from './service/auth-guard.service';
 import { CollabrativeEditService } from './service/collabrative-edit.service';
 import { ProfileComponent } from './components/profile/profile.component';
 import { AceEditorComponent } from './components/ace-editor/ace-editor.component';
+import { SearchByNamePipe } from './pipes/search-by-name.pipe';
+
+import { SearchInputService } from './service/search-input.service';
 
 @NgModule({
   declarations: [
@@ -27,13 +31,15 @@ import { AceEditorComponent } from './components/ace-editor/ace-editor.component
     AddProblemEntryComponent,
     NavigationBarComponent,
     ProfileComponent,
-    AceEditorComponent
+    AceEditorComponent,
+    SearchByNamePipe,
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
-    routing
+    routing,
+    ReactiveFormsModule
   ],
   providers: [{
     provide: "ProblemService",
@@ -49,6 +55,10 @@ import { AceEditorComponent } from './components/ace-editor/ace-editor.component
   {
     provide: "CollabrativeEditService",
     useClass: CollabrativeEditService
+  },
+  {
+    provide: "SearchInputService",
+    useClass: SearchInputService
   }],
   bootstrap: [AppComponent]
 })
