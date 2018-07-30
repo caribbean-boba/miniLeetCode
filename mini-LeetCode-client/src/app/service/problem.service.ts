@@ -47,4 +47,15 @@ export class ProblemService {
     })
     .catch(this.handleError);
   }
+
+  buildAndRun(data): Promise<Object> {
+    let headers = new Headers({"content-type": "application/json"});
+    return this.http.post("api/build_and_run", JSON.stringify(data), {headers: headers})
+    .toPromise()
+    .then((res: Response) => {
+      console.log(res);
+      return res.json();
+    })
+    .catch(this.handleError);
+  }
 }

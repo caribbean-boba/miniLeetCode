@@ -10,6 +10,7 @@ declare const ace: any;
   styleUrls: ['./ace-editor.component.css']
 })
 export class AceEditorComponent implements OnInit {
+  output: string;
   editor: any;
   initialText = {
     'Java': `public class Solution{
@@ -25,6 +26,7 @@ export class AceEditorComponent implements OnInit {
   sessionId: string;
 
   constructor(@Inject("CollabrativeEditService") private CollabrativeEditService,
+              @Inject("ProblemService") private ProblemService,
               private route: ActivatedRoute) {
 
   }
@@ -68,11 +70,17 @@ export class AceEditorComponent implements OnInit {
     this.editor.getSession().setMode('ace/mode/' + this.language.toLocaleLowerCase());
     this.editor.setTheme("ace/theme/"+this.theme.toLocaleLowerCase());
     this.editor.setValue(this.initialText[this.language]);
+    this.output = "";
   }
 
   submit(): void {
     let code = this.editor.getValue();
-    console.log(code);
+    let data = {
+      user_code: code,
+      lang: this.language.toLowerCase()
+    }
+    console.log(data);
+    this.ProblemService.buildAndRun(data).then(res => this.output = res.text)
   }
 
 }
